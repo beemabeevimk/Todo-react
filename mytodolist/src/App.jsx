@@ -1,9 +1,5 @@
 import "./App.css";
 import React, { useState, useRef, useEffect } from "react";
-import Comp1 from "./components/comp1";
-import Comp2 from "./components/Comp2";
-import {sample} from './context'
-import Comp3 from "./components/Comp3";
 
 
 
@@ -27,6 +23,7 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     if (toDo.trim() === "") {
       return;
     }
@@ -35,14 +32,12 @@ function App() {
       alert("Task already exists!");
       return;
     }
-    setToDo("");
 
-    addTask();
+    addTask(); 
+
   };
 
-  const handleDeleteAll = () => {
-    setToDos([]);
-  };
+
 
   const newTask = { id: Date.now(), text: toDo, status: false };
 
@@ -113,17 +108,18 @@ function App() {
             return null;
           })}
           <br />
-          <button onClick={handleDeleteAll}>Delete All</button>
+       
         </div>
       </div>
 
      
     </div>
-    <sample.Provider value={{count,setCount}}>
-    {/* <Comp1 />
-    <Comp2 />
-    <Comp3/> */}
-    </sample.Provider>
+  
+  {/* <Comp1 /> */}
+
+    
+   
+ 
     
        </>
   );
